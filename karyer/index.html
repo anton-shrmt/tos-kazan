@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Паспорт ТОС «Карьер»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap">
+<style>
+:root{
+  --brand:#1E4D3B;
+  --accent:#B04A2F;
+  --bg:#F3F5F2;
+  --surface:#FFFFFF;
+  --ink:#16201B;
+  --muted:#5B6660;
+  --line:#D9DED9;
+  --on-brand:#F4F7F3;
+  --ok:#2F7A4E; --part:#B7800F; --none:#B8352A; --unk:#8A918D;
+  --brand-ink:var(--brand);
+  --accent-ink:var(--accent);
+  --ph-bg:#FFF6E0; --ph-line:#D9A93A; --ph-ink:#7A5608;
+  --f-display:"Unbounded", "Golos Text", system-ui, sans-serif;
+  --f-body:"Golos Text", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --s-1:.8125rem; --s0:1rem; --s1:1.125rem; --s2:1.375rem; --s3:1.75rem; --s4:2.75rem;
+}
+:root[data-palette="cobalt"]{ --brand:#1B365D; --accent:#B5543A; --bg:#F2F4F7; --line:#D8DDE5; --ink:#141C28; --muted:#586374; }
+:root[data-palette="petrol"]{ --brand:#0F4A52; --accent:#B0712F; --bg:#F1F5F5; --line:#D5DFDF; --ink:#122224; --muted:#566769; }
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101513; --surface:#18201C; --ink:#E7ECE8; --muted:#9AA6A0; --line:#2B3530;
+    --brand-ink:color-mix(in oklab, var(--brand) 40%, white); --accent-ink:color-mix(in oklab, var(--accent) 70%, white);
+    --ok:#5DB883; --part:#E0AA3E; --none:#E5675B; --unk:#7F8884;
+    --ph-bg:#2E2614; --ph-line:#8A6A22; --ph-ink:#F0CF84;
+    color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:var(--s0);line-height:1.55;margin:0;overflow-x:clip}
+.wrap{max-width:1240px;width:100%;margin:0 auto;padding-left:max(clamp(16px, 3vw, 36px), env(safe-area-inset-left, 0px));padding-right:max(clamp(16px, 3vw, 36px), env(safe-area-inset-right, 0px))}
+h1,h2,h3{text-wrap:balance;margin:0}
+h2{font-family:var(--f-display);font-weight:700;font-size:clamp(1.2rem, 2.2vw, 1.55rem);color:var(--brand-ink);letter-spacing:-.01em}
+a{color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent-ink);outline-offset:2px}
+.eyebrow{font-size:var(--s-1);text-transform:uppercase;letter-spacing:.09em;font-weight:600;color:var(--muted)}
+.tab{font-variant-numeric:tabular-nums}
+
+.toolbar{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;padding-block:12px}
+.swatches{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.swatches button{font:inherit;font-size:var(--s-1);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:5px 12px 5px 6px;display:flex;gap:8px;align-items:center;cursor:pointer}
+.swatches button[aria-pressed="true"]{border-color:var(--ink);font-weight:600}
+.dot2{display:inline-flex}
+.dot2 i{width:14px;height:14px;border-radius:50%;display:block}
+.dot2 i+i{margin-left:-4px;box-shadow:0 0 0 2px var(--surface)}
+.toolbar a{font-size:var(--s-1);font-weight:600}
+
+.hero{background:var(--brand);color:var(--on-brand)}
+.hero .wrap{padding-block:clamp(28px, 4vw, 44px) clamp(24px, 3.5vw, 36px);display:grid;gap:22px}
+.reqs{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:var(--s-1);letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+.hero h1{font-family:var(--f-display);font-weight:700;font-size:clamp(2.1rem, 5.5vw, 3.8rem);line-height:1.02;letter-spacing:-.02em}
+.hero h1 span{display:block;font-family:var(--f-body);font-weight:500;font-size:clamp(1rem, 1.5vw, 1.2rem);letter-spacing:0;opacity:.85;margin-bottom:6px}
+.hero .where{font-size:clamp(1rem, 1.4vw, 1.125rem);opacity:.92;max-width:80ch;margin:0}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:color-mix(in oklab, var(--on-brand) 22%, transparent);border-top:1px solid color-mix(in oklab, var(--on-brand) 22%, transparent)}
+.stat{background:var(--brand);padding:16px 18px 0 0}
+.stat+.stat{padding-left:18px}
+.stat .n{font-family:var(--f-display);font-weight:500;font-size:clamp(1.35rem, 2.4vw, 2rem);line-height:1.1;font-variant-numeric:tabular-nums}
+.stat .l{font-size:var(--s-1);opacity:.85;line-height:1.35;margin-top:4px}
+@media (max-width:760px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px;background:transparent;padding-top:14px}
+  .stat,.stat+.stat{padding:0}
+}
+
+main .wrap{display:grid;gap:clamp(36px, 4.5vw, 56px);padding-block:clamp(28px, 4vw, 44px) 64px}
+section{display:grid;gap:16px;min-width:0;align-content:start}
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;border-bottom:2px solid var(--brand-ink);padding-bottom:8px}
+.sec-head p{margin:0;color:var(--muted);font-size:var(--s-1)}
+
+.ph{background:var(--ph-bg);color:var(--ph-ink);border:1px dashed var(--ph-line);border-radius:4px;padding:0 6px;font-weight:500;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+.contacts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width:1040px){.contacts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.contacts{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:6px;align-content:start;min-width:0}
+.card.main{border-color:var(--brand-ink);border-width:2px}
+.card .role{font-size:var(--s-1);text-transform:uppercase;letter-spacing:.07em;color:var(--accent-ink);font-weight:600}
+.card .who{font-weight:600;font-size:var(--s1);line-height:1.3}
+.card .meta{color:var(--muted);font-size:.9375rem;line-height:1.4}
+.card .phone{font-variant-numeric:tabular-nums;font-weight:600;user-select:all}
+
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:var(--s-1);color:var(--muted)}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+.mk{width:22px;height:22px;border-radius:6px;display:inline-grid;place-items:center;color:#fff;font-size:12px;font-weight:700;flex:none;line-height:1}
+.mk.ok{background:var(--ok)} .mk.part{background:var(--part)} .mk.none{background:var(--none)} .mk.unk{background:var(--unk)}
+.mk.ok::after{content:"✓"} .mk.part::after{content:"!"} .mk.none::after{content:"✕"} .mk.unk::after{content:"?"}
+.infra-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:820px){.infra-grid{grid-template-columns:1fr}}
+.infra-item{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;align-items:start}
+.infra-item .mk{margin-top:2px}
+.infra-item .infra-title{font-weight:600;font-size:1rem;line-height:1.3}
+.infra-item .infra-desc{grid-column:2;color:var(--muted);font-size:.9375rem;line-height:1.45}
+
+.mapshot{margin:0;display:grid;gap:10px}
+.map-frame{position:relative;width:100%;height:clamp(340px, 48vw, 520px);border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+.map-frame iframe{width:100%;height:100%;border:0;display:block}
+.mapshot figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;font-size:var(--s-1);color:var(--muted)}
+
+.status-legend{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:3px 9px;border:1px solid currentColor;white-space:nowrap}
+.chip.s-claimed{color:var(--muted)}
+.chip.s-plan{color:var(--brand-ink);background:color-mix(in oklab, var(--brand) 8%, transparent)}
+.chip.s-work{color:var(--part);border-color:var(--part);background:color-mix(in oklab, var(--part) 14%, transparent)}
+.chip.s-done{color:var(--ok);background:color-mix(in oklab, var(--ok) 12%, transparent)}
+.chip.s-rejected{color:var(--none);background:color-mix(in oklab, var(--none) 10%, transparent)}
+ol.prio{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:900px){ol.prio{grid-template-columns:1fr}}
+ol.prio li{display:grid;grid-template-columns:2.2rem minmax(0,1fr);gap:6px 10px;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:10px;align-content:start}
+ol.prio .num{font-family:var(--f-display);font-weight:700;color:var(--accent-ink);font-size:var(--s1);font-variant-numeric:tabular-nums;line-height:1.2}
+ol.prio .what{font-weight:600;line-height:1.35}
+ol.prio .det{color:var(--muted);font-size:.9375rem;grid-column:2;line-height:1.45}
+ol.prio .side{grid-column:2;display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:2px}
+ol.prio .yr{font-variant-numeric:tabular-nums;font-weight:600;font-size:.875rem;color:var(--muted)}
+ol.prio li.top{border-color:color-mix(in oklab, var(--brand) 30%, var(--line))}
+
+.near{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:960px){.near{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.near{grid-template-columns:1fr}}
+.near ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.near li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;font-size:.9375rem;border-bottom:1px dotted var(--line);padding-bottom:6px}
+.near li:last-child{border-bottom:0;padding-bottom:0}
+.near li small{grid-column:1/2;color:var(--muted);font-size:var(--s-1)}
+.near li .v{font-variant-numeric:tabular-nums;color:var(--muted);font-size:var(--s-1);text-align:right}
+.near h3{font-size:var(--s0);font-weight:700;color:var(--brand-ink);margin-bottom:4px}
+
+.split-bottom{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:36px;align-items:start}
+@media (max-width:960px){.split-bottom{grid-template-columns:1fr;gap:40px}}
+
+.timeline{list-style:none;margin:0;padding:0;display:grid;border-left:2px solid var(--line);margin-left:6px}
+.timeline li{position:relative;padding:0 0 16px 22px;display:grid;grid-template-columns:5.2rem minmax(0,1fr);gap:12px}
+.timeline li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--brand-ink)}
+.timeline li.work::before{background:var(--accent-ink);border-color:var(--accent-ink)}
+.timeline .y{font-family:var(--f-display);font-weight:500;font-variant-numeric:tabular-nums;color:var(--brand-ink)}
+.note{background:var(--surface);border-left:3px solid var(--accent-ink);padding:12px 14px;border-radius:0 8px 8px 0;font-size:.9375rem;color:var(--muted);max-width:72ch;margin:0}
+
+.fb{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+.fb .wide{grid-column:1/-1}
+.field{display:grid;gap:6px;min-width:0}
+.field label{font-weight:600;font-size:.9375rem}
+.fb input[type=text],.fb input[type=tel],.fb select,.fb textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;width:100%}
+.fb textarea{resize:vertical}
+.fb input:focus,.fb select:focus,.fb textarea:focus{outline:2px solid var(--brand-ink);outline-offset:1px;border-color:transparent}
+.fb [aria-invalid="true"]{border-color:var(--none)}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:.9375rem;color:var(--muted)}
+.check input{margin-top:4px;accent-color:var(--brand-ink)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.fb button,.fb-done button{font:inherit;font-weight:600;background:var(--brand);color:var(--on-brand);border:0;border-radius:8px;padding:12px 20px;cursor:pointer}
+.fb-done button{background:transparent;color:var(--accent-ink);border:1px solid currentColor;padding:8px 14px;margin-left:8px}
+.err{color:var(--none);font-size:.9375rem}
+.fb-done{background:color-mix(in oklab, var(--ok) 10%, var(--surface));border:1px solid var(--ok);border-radius:10px;padding:16px 18px;line-height:1.6}
+@media (max-width:560px){.fb{grid-template-columns:1fr;padding:16px}}
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:20px 32px;font-size:var(--s-1);color:var(--muted);display:grid;gap:6px}
+</style>
+</head>
+<body>
+
+<div class="wrap toolbar" role="region" aria-label="Варианты оформления">
+  <div class="swatches" id="swatches">
+    <span class="eyebrow">Оформление</span>
+    <button type="button" data-pal="malachite" aria-pressed="true"><span class="dot2"><i style="background:#1E4D3B"></i><i style="background:#B04A2F"></i></span>Малахит и кирпич</button>
+    <button type="button" data-pal="cobalt" aria-pressed="false"><span class="dot2"><i style="background:#1B365D"></i><i style="background:#B5543A"></i></span>Кобальт и кирпич</button>
+    <button type="button" data-pal="petrol" aria-pressed="false"><span class="dot2"><i style="background:#0F4A52"></i><i style="background:#B0712F"></i></span>Петроль и медь</button>
+  </div>
+  <a href="poster.html" id="poster-link">Плакат для стенда, А4 →</a>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="reqs">
+      <span>Паспорт ТОС · Казань</span>
+      <span>Ноябрь 2026 · пилот</span>
+    </div>
+    <h1><span>Территориальное общественное самоуправление</span>«Карьер»</h1>
+    <p class="where">Советский район · Шуртыгинский избирательный округ №22<br>Жилой массив Карьер: ул. Агрызская, Карьерная, Переселенческая, Яснополянская, Фигурная, Песочная, Откосная, Таловая, 1-я и 2-я Верхняя</p>
+    <div class="stats">
+      <div class="stat"><div class="n tab">1 709</div><div class="l">жителей на территории ТОС</div></div>
+      <div class="stat"><div class="n tab">614</div><div class="l">несовершеннолетних</div></div>
+      <div class="stat"><div class="n tab">4 + 390</div><div class="l">многоквартирных и частных домов</div></div>
+      <div class="stat"><div class="n tab">100%</div><div class="l">жителей входят в ТОС</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <section id="contacts" aria-labelledby="h-contacts">
+    <div class="sec-head"><h2 id="h-contacts">Кому звонить</h2><p>Контакты ТОС, депутата и районных служб</p></div>
+    <div class="contacts">
+      <div class="card main">
+        <div class="role">Председатель ТОС</div>
+        <div class="who">Шайхлисламова Гулия Рафкатовна</div>
+        <div class="phone"><a href="tel:+79376270027">+7 (937) 627-00-27</a></div>
+        <div class="meta">Чат ТОС: <span class="ph">ссылка на чат или группу</span></div>
+      </div>
+      <div class="card">
+        <div class="role">Депутат КГД по округу №22</div>
+        <div class="who">Салимгараев Радик Ваккасович</div>
+        <div class="phone"><a href="tel:+79395050557">+7 (939) 505-05-57</a></div>
+        <div class="meta">Приём граждан: первая среда месяца с 17:00 до 19:00, СОШ №111, ул. А. Кутуя, д. 4</div>
+        <div class="meta">Каналы: <a href="https://t.me/salimgaraevradik" target="_blank" rel="noopener">t.me/salimgaraevradik</a> · <a href="https://vk.com/id607156527" target="_blank" rel="noopener">ВКонтакте</a></div>
+      </div>
+      <div class="card">
+        <div class="role">Администрация</div>
+        <div class="who">Администрация Советского района г. Казани</div>
+        <div class="phone"><a href="tel:+78432232000">+7 (843) 223-20-00</a></div>
+        <div class="meta">420081, г. Казань, ул. Шуртыгина, д. 1</div>
+        <div class="meta"><a href="mailto:Sov.Post@tatar.ru">Sov.Post@tatar.ru</a> · <a href="https://obrazovanie.kzn.ru/meriya/administratsii-rayonov/sovetskiy/internet-priemnaya/" target="_blank" rel="noopener">Интернет-приёмная</a></div>
+      </div>
+      <div class="card">
+        <div class="role">Охрана порядка</div>
+        <div class="who">Участковый уполномоченный</div>
+        <div class="meta">Опорный пункт: <span class="ph">адрес и ФИО</span></div>
+        <div class="phone"><span class="ph">+7 ___ ___-__-__</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="map" aria-labelledby="h-map">
+    <div class="sec-head"><h2 id="h-map">Территория</h2><p>Границы жилого массива Карьер на Яндекс Картах</p></div>
+    <figure class="mapshot">
+      <div class="map-frame">
+        <iframe src="https://yandex.ru/map-widget/v1/geo/zhiloy_massiv_karyer/53182808/?ll=49.202293%2C55.837411&amp;z=15.5" title="Интерактивная карта жилого массива Карьер" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <figcaption>
+        <a href="https://yandex.ru/maps/43/kazan/geo/zhiloy_massiv_karyer/53182808/?ll=49.202293%2C55.837411&amp;z=16.22" target="_blank" rel="noopener">Открыть в Яндекс Картах →</a>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section id="priorities" aria-labelledby="h-prio">
+    <div class="sec-head"><h2 id="h-prio">Направления работы</h2><p>Запросы жителей по анкете посёлка и сводке КГД</p></div>
+    <ol class="prio" id="prio"></ol>
+  </section>
+
+  <section id="status" aria-labelledby="h-status">
+    <div class="sec-head"><h2 id="h-status">Инфраструктура</h2></div>
+    <div class="legend">
+      <span><i class="mk ok" aria-hidden="true"></i>есть, в порядке</span>
+      <span><i class="mk part" aria-hidden="true"></i>есть частично или нужен ремонт</span>
+      <span><i class="mk none" aria-hidden="true"></i>нет</span>
+      <span><i class="mk unk" aria-hidden="true"></i>нет данных</span>
+    </div>
+    <div class="infra-grid" id="infra-grid"></div>
+  </section>
+
+  <section id="near" aria-labelledby="h-near">
+    <div class="sec-head"><h2 id="h-near">Объекты в посёлке и рядом</h2><p>Учреждения, спорт, парки и торговля</p></div>
+    <div class="near">
+      <div class="card"><h3>Образование</h3><ul>
+        <li><span>Основная школа №108 (1954 г.)</span><span class="v">380 / 330 мест</span><small>280 школьников и 100 воспитанников детсада</small></li>
+        <li><span>Детский сад «Весна» (частный)</span><span class="v">100 мест</span><small>ул. Агрызская, 61</small></li>
+      </ul></div>
+      <div class="card"><h3>Парки и спорт</h3><ul>
+        <li><span>Парк «Туган Алан»</span><span class="v">Хорошее</span><small>ул. Песочная</small></li>
+        <li><span>Спортивная площадка</span><span class="v">Хорошее</span><small>ул. Поперечно-Таловая</small></li>
+        <li><span>Футбольное поле</span><span class="v">Хорошее</span><small>ул. Агрызская, 78</small></li>
+        <li><span>Карьерный овраг и Царицынский лес</span><span class="v">Удовл.</span><small>лесные массивы</small></li>
+      </ul></div>
+      <div class="card"><h3>Торговля, транспорт, медицина</h3><ul>
+        <li><span>Остановка «Карьер» (Сибирский Тракт)</span><span class="v">10 маршрутов</span><small>автобусы 1, 4, 4а, 34, 41с, 60, 84, 91, 124; маршрутка 125</small></li>
+        <li><span>Продуктовые магазины</span><span class="v">3 точки</span><small>«Авокадо» (ул. Фигурная), «Продукты» (ул. Агрызская, 81), овощная лавка (ул. Агрызская, 51а)</small></li>
+        <li><span>Поликлиника</span><span class="v">В Дербышках</span><small>внутри посёлка медучреждений нет</small></li>
+      </ul></div>
+    </div>
+  </section>
+
+  <div class="split-bottom">
+  <section id="history" aria-labelledby="h-hist">
+    <div class="sec-head"><h2 id="h-hist">История жилого массива</h2><p>Ключевые вехи посёлка Карьер</p></div>
+    <ol class="timeline">
+      <li><span class="y">1954</span><span>Построено здание основной общеобразовательной школы №108.</span></li>
+      <li><span class="y">1956</span><span>Основание посёлка Карьер в составе Молотовского (ныне Советского) района Казани. Среди первых жителей были переселенцы из зоны затопления Куйбышевского водохранилища.</span></li>
+      <li><span class="y">1989</span><span>Расположенный рядом Карьерный овраг получил статус ландшафтного памятника природы регионального значения.</span></li>
+      <li class="work"><span class="y">2023–24</span><span>Благоустройство и открытие парка «Туган Алан» на ул. Песочной: появились прогулочная зона, сцена, детская и спортивная площадки.</span></li>
+    </ol>
+  </section>
+
+  <section id="feedback" aria-labelledby="h-fb">
+    <div class="sec-head"><h2 id="h-fb">Обратная связь</h2><p>Обращение получат председатель ТОС и приёмная депутата</p></div>
+    <form class="fb" id="fb" novalidate>
+      <div class="field wide">
+        <label for="fb-topic">Тема обращения</label>
+        <select id="fb-topic" name="topic" required>
+          <option value="">Выберите тему</option>
+          <option>Дороги и тротуары</option>
+          <option>Освещение</option>
+          <option>Водопровод, канализация, ливнёвка</option>
+          <option>Площадки ТКО и вывоз мусора</option>
+          <option>Детский сад и школа</option>
+          <option>Общественный транспорт</option>
+          <option>Парки, спорт и благоустройство</option>
+          <option>Предложение проекта для ТОС</option>
+          <option>Другое</option>
+        </select>
+      </div>
+      <div class="field wide">
+        <label for="fb-addr">Адрес, к которому относится вопрос</label>
+        <input id="fb-addr" name="addr" type="text" placeholder="Например, ул. Агрызская, 51">
+      </div>
+      <div class="field wide">
+        <label for="fb-text">Суть обращения</label>
+        <textarea id="fb-text" name="text" rows="5" required placeholder="Опишите проблему или предложение"></textarea>
+      </div>
+      <div class="field">
+        <label for="fb-name">Имя</label>
+        <input id="fb-name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="fb-phone">Телефон для ответа</label>
+        <input id="fb-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+7">
+      </div>
+      <label class="check wide" for="fb-agree"><input id="fb-agree" name="agree" type="checkbox" required> Согласен на обработку персональных данных для ответа на обращение</label>
+      <div class="actions wide">
+        <button type="submit" id="fb-send">Отправить обращение</button>
+        <span class="err" id="fb-err" role="alert"></span>
+      </div>
+    </form>
+    <div class="fb-done" id="fb-done" hidden>
+      <b>Обращение сформировано.</b> Это пилотная версия страницы, поэтому форма пока работает локально. Перед публикацией подключим отправку в приёмную депутата и председателю ТОС.
+      <button type="button" id="fb-again">Написать ещё</button>
+    </div>
+  </section>
+  </div>
+
+</div>
+</main>
+
+<footer><div class="wrap">
+  <div>Паспорт ТОС «Карьер». Пилот, версия 1, ноябрь 2026. Источники: анкета ЖМ «Карьер», паспорт Шуртыгинского округа №22, сводная таблица ТОС Советского района для КГД.</div>
+  <div>Жёлтым пунктиром отмечены сведения, которые нужно дополнить перед публикацией.</div>
+</div></footer>
+
+<script>
+(function(){
+  var rows = [
+    ["Водопровод", "ok", "Централизованное водоснабжение есть"],
+    ["Газ", "ok", "Газоснабжение есть"],
+    ["Дороги", "part", "Протяжённость 9,95 км, требуют ремонта 48,84 тыс. м². Нет асфальта на ул. Агрызской от д. 51; проблемные участки: ул. Карьерная, Переселенческая (за школой к СНТ), 1-я и 2-я Верхняя, Яснополянская, Фигурная, Песочная, Откосная"],
+    ["Освещение", "part", "Нет света от пер. Яснополянского до ул. 2-я Верхняя и за зданием ул. Сибирский Тракт, 48 к. 2 (Канавто) от ул. Таловой до Трамвайного депо (Сибирский Тракт, 46)"],
+    ["Площадки ТКО", "part", "Действуют 3 площадки: Яснополянский пер. (на въезде и напротив ул. Откосная, 21а), ул. Агрызская, 2. По сводке КГД нужно ещё 3 площадки"],
+    ["Транспорт", "part", "Остановка «Карьер» на ул. Сибирский Тракт: автобусы № 1, 4, 4а, 34, 41с, 60, 84, 91, 124 и маршрутка № 125. Требуется электронное табло"],
+    ["Школа и детсад", "part", "Школа №108 (1954 г.): 380 детей (280 школа + 100 детсад) при плане 330. Частный детсад «Весна» (ул. Агрызская, 61; 100 мест). Муниципального детсада не хватает"],
+    ["Медицина", "none", "В посёлке учреждений нет; жители прикреплены к поликлинике в Дербышках"],
+    ["Парки и спорт", "ok", "Парк «Туган Алан» (ул. Песочная), спортплощадка (ул. Поперечно-Таловая), футбольное поле (ул. Агрызская, 78), Карьерный овраг и часть Царицынского леса"],
+    ["Магазины", "part", "3 точки: «Авокадо» (ул. Фигурная), «Продукты» (ул. Агрызская, 81), овощная лавка (ул. Агрызская, 51а). Нужен продуктовый магазин внутри посёлка"]
+  ];
+  var ig = document.getElementById("infra-grid");
+  var labels = {ok:"в порядке",part:"частично",none:"нет",unk:"нет данных"};
+  rows.forEach(function(r){
+    var div = document.createElement("div");
+    div.className = "infra-item";
+    div.innerHTML = '<i class="mk '+r[1]+'" role="img" aria-label="'+labels[r[1]]+'"></i><div class="infra-title">'+r[0]+'</div><div class="infra-desc">'+r[2]+'</div>';
+    ig.appendChild(div);
+  });
+
+  var S = {done:["s-done","Сделано"], work:["s-work","В работе"], plan:["s-plan","Запланировано"], claimed:["s-claimed","Заявлено"], rejected:["s-rejected","Отказано"]};
+  var prio = [
+    ["Заасфальтировать ул. Агрызскую (от д. 51) и проблемные улицы посёлка","Ул. Карьерная, Переселенческая (к СНТ), 1-я и 2-я Верхняя, Яснополянская, Фигурная, Песочная, Откосная. Всего к ремонту 48,84 тыс. м²","2026","work",1],
+    ["Решить дефицит мест в муниципальном детском саду","В посёлке работает только частный сад «Весна», а школа №108 перегружена (380 чел. при норме 330)","2027","plan",1],
+    ["Провести централизованную канализацию в посёлок","Централизованное водоотведение в жилом массиве отсутствует","без срока","claimed",1],
+    ["Обустроить уличное освещение на двух тёмных участках","Пер. Яснополянский до ул. 2-я Верхняя и участок за Сибирским Трактом, 48 к. 2 до Трамвайного депо","2026","done",1],
+    ["Установить 3 дополнительные площадки ТКО","Потребность зафиксирована в сводной таблице ТОС для КГД в дополнение к 3 действующим площадкам","2027","plan",1],
+    ["Установить электронное табло на остановке «Карьер»","Остановка на ул. Сибирский Тракт, 10 маршрутов общественного транспорта","2026","work",0],
+    ["Открыть продуктовый магазин внутри посёлка","Действующие магазины расположены по границам жилого массива","","rejected",0],
+    ["Обустроить мостовой переход","Потребность в 1 мосте зафиксирована в сводке ТОС для КГД; точный адрес уточняется","без срока","claimed",0]
+  ];
+  var ol = document.getElementById("prio");
+  prio.forEach(function(p,i){
+    var li = document.createElement("li");
+    if (p[4]) li.className = "top";
+    li.innerHTML = '<span class="num">'+(i+1)+'</span><span class="what">'+p[0]+'</span><span class="side"><span class="chip '+S[p[3]][0]+'">'+S[p[3]][1]+'</span><span class="yr">'+p[2]+'</span></span><span class="det">'+p[1]+'. Ответственный: <span class="ph">уточняется</span></span>';
+    ol.appendChild(li);
+  });
+
+  var form = document.getElementById("fb"), done = document.getElementById("fb-done"), err = document.getElementById("fb-err");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var bad = [];
+    ["fb-topic","fb-text","fb-name","fb-phone"].forEach(function(id){
+      var el = document.getElementById(id), ok = el.value.trim() !== "";
+      if (id === "fb-phone") ok = el.value.replace(/\D/g,"").length >= 10;
+      el.setAttribute("aria-invalid", String(!ok)); if (!ok) bad.push(el);
+    });
+    var agree = document.getElementById("fb-agree");
+    if (bad.length) { err.textContent = "Заполните тему, суть обращения, имя и телефон (минимум 10 цифр)."; bad[0].focus(); return; }
+    if (!agree.checked) { err.textContent = "Отметьте согласие на обработку персональных данных."; agree.focus(); return; }
+    err.textContent = ""; form.hidden = true; done.hidden = false;
+  });
+  document.getElementById("fb-again").addEventListener("click", function(){ form.reset(); done.hidden = true; form.hidden = false; document.getElementById("fb-topic").focus(); });
+
+  var root = document.documentElement, KEY = "tos-palette-karyer";
+  function setPal(p){
+    if (p === "malachite") root.removeAttribute("data-palette"); else root.setAttribute("data-palette", p);
+    document.querySelectorAll("#swatches button").forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.pal === p)); });
+    var a = document.getElementById("poster-link"); a.href = "poster.html#" + p;
+    try { localStorage.setItem(KEY, p); } catch(e){}
+  }
+  document.querySelectorAll("#swatches button").forEach(function(b){ b.addEventListener("click", function(){ setPal(b.dataset.pal); }); });
+  var start = (location.hash||"").slice(1);
+  if (!/^(malachite|cobalt|petrol)$/.test(start)) { try { start = localStorage.getItem(KEY) || "malachite"; } catch(e){ start = "malachite"; } }
+  if (!/^(malachite|cobalt|petrol)$/.test(start)) start = "malachite";
+  setPal(start);
+})();
+</script>
+</body>
+</html>

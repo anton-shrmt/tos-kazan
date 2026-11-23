@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Плакат ТОС «Карьер»</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap">
+<style>
+:root{
+  --brand:#1E4D3B; --accent:#B04A2F; --paper:#FFFFFF; --desk:#E6E9E6; --ink:#16201B; --muted:#5B6660; --line:#D9DED9; --on-brand:#F4F7F3;
+  --ok:#2F7A4E; --work:#9A6700; --work-line:#C98E00; --work-bg:#FFF4CC; --none:#B8352A;
+  --ph-bg:#FFF6E0; --ph-line:#D9A93A; --ph-ink:#7A5608;
+  --f-display:"Unbounded","Golos Text",system-ui,sans-serif;
+  --f-body:"Golos Text",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+:root[data-palette="cobalt"]{--brand:#1B365D;--accent:#B5543A;--desk:#E4E8EE;--line:#D8DDE5;--ink:#141C28;--muted:#586374}
+:root[data-palette="petrol"]{--brand:#0F4A52;--accent:#B0712F;--desk:#E2E9E9;--line:#D5DFDF;--ink:#122224;--muted:#566769}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--desk);color:var(--ink);font-family:var(--f-body);-webkit-print-color-adjust:exact;print-color-adjust:exact;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:16px 32px}
+.bar{max-width:210mm;margin:0 auto 12px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;font-size:13px}
+.bar .sw{display:flex;flex-wrap:wrap;gap:6px}
+.bar button{font:inherit;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer}
+.bar button[aria-pressed="true"]{border-color:var(--ink);font-weight:600}
+.bar a{color:var(--accent);font-weight:600}
+.bar p{margin:0;color:var(--muted);flex-basis:100%}
+.scaler{max-width:100%;overflow-x:auto}
+.sheet{width:210mm;height:297mm;margin:0 auto;background:var(--paper);box-shadow:0 2px 18px rgba(0,0,0,.12);display:grid;grid-template-rows:auto auto 1fr auto;overflow:hidden}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.top{background:var(--brand);color:var(--on-brand);padding:10mm 14mm 8mm;display:grid;gap:3.2mm}
+.reqs{display:flex;justify-content:space-between;gap:6mm;font-size:8.5pt;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.top h1{margin:0;font-family:var(--f-display);font-weight:700;font-size:38pt;line-height:1;letter-spacing:-.02em}
+.top h1 small{display:block;font-family:var(--f-body);font-weight:500;font-size:11pt;letter-spacing:0;opacity:.85;margin-bottom:2mm}
+.top .where{font-size:10pt;opacity:.92;margin:0;max-width:175mm;line-height:1.4}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.stat{padding:4.2mm 3mm 4.2mm 14mm}
+.stat+.stat{border-left:1px solid var(--line);padding-left:5mm}
+.stat .n{font-family:var(--f-display);font-weight:500;font-size:17.5pt;color:var(--brand);font-variant-numeric:tabular-nums;line-height:1.1}
+.stat .l{font-size:7.8pt;color:var(--muted);line-height:1.28;margin-top:1mm}
+
+.body{display:grid;padding:6.5mm 14mm 4.5mm;min-height:0;overflow:hidden;align-content:start}
+h2{margin:0 0 2.6mm;font-family:var(--f-display);font-weight:700;font-size:12pt;color:var(--brand);border-bottom:2px solid var(--brand);padding-bottom:1.5mm}
+
+ol.prio{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;grid-auto-flow:column;grid-template-rows:repeat(4,auto);column-gap:9mm}
+ol.prio li{display:grid;align-content:start;grid-template-columns:7mm 1fr;gap:.8mm 2mm;padding:2.6mm 0;border-bottom:1px solid var(--line)}
+ol.prio .num{font-family:var(--f-display);font-weight:700;color:var(--accent);font-size:12pt;line-height:1.15}
+ol.prio .what{font-weight:600;font-size:9.8pt;line-height:1.28}
+ol.prio .det{grid-column:2;font-size:8pt;color:var(--muted);line-height:1.26}
+ol.prio .meta{grid-column:2;display:flex;gap:2.5mm;align-items:center;font-size:7.8pt;color:var(--muted);margin-top:.5mm}
+.chip{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border:1px solid currentColor;border-radius:99px;padding:.3mm 2mm}
+.chip.done{color:var(--ok);background:color-mix(in oklab, var(--ok) 10%, transparent)}
+.chip.work{color:var(--work);border-color:var(--work-line);background:var(--work-bg)}
+.chip.plan{color:var(--brand);background:color-mix(in oklab, var(--brand) 8%, transparent)}
+.chip.claimed{color:var(--muted)}
+.chip.rejected{color:var(--none);background:color-mix(in oklab, var(--none) 8%, transparent)}
+.more{font-size:8.4pt;color:var(--muted);margin:3.5mm 0 0;line-height:1.35}
+
+.foot{display:grid;grid-template-columns:1fr 1fr 38mm;gap:6mm;padding:6mm 14mm 9mm;background:color-mix(in oklab, var(--brand) 7%, var(--paper));border-top:3px solid var(--accent);align-items:start}
+.who .role{font-size:7.5pt;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);font-weight:700}
+.who .n{font-weight:600;font-size:11pt;margin-top:1mm}
+.who .p{font-family:var(--f-display);font-weight:500;font-size:12pt;color:var(--brand);margin-top:1mm;font-variant-numeric:tabular-nums}
+.who .m{font-size:8.5pt;color:var(--muted);margin-top:1mm;line-height:1.35}
+.ph{background:var(--ph-bg);color:var(--ph-ink);border:1px dashed var(--ph-line);border-radius:1mm;padding:0 1.5mm;font-weight:500}
+.qr{display:grid;gap:1.5mm;justify-items:center;text-align:center}
+.qr .box{width:30mm;height:30mm;background:#fff;border:1px solid var(--line);display:grid;place-items:center;padding:1.5mm}
+.qr .box svg{width:100%;height:100%;display:block}
+.qr .c{font-size:7.5pt;line-height:1.3;color:var(--ink);font-weight:600}
+
+@page{size:A4;margin:0}
+@media print{
+  body{background:#fff;padding:0}
+  .bar{display:none}
+  .scaler{overflow:visible}
+  .sheet{box-shadow:none;margin:0}
+}
+@media screen and (max-width:830px){
+  .scaler{overflow:visible;height:calc(297mm * var(--k, 1));}
+  .sheet{transform:scale(var(--k,1));transform-origin:top left;margin:0}
+}
+</style>
+</head>
+<body>
+<div class="bar">
+  <div class="sw" id="sw">
+    <button type="button" id="p-malachite" data-pal="malachite" aria-pressed="true">Малахит и кирпич</button>
+    <button type="button" id="p-cobalt" data-pal="cobalt" aria-pressed="false">Кобальт и кирпич</button>
+    <button type="button" id="p-petrol" data-pal="petrol" aria-pressed="false">Петроль и медь</button>
+  </div>
+  <a href="./" id="back">← Подробный паспорт</a>
+  <p>Для печати откройте файл в браузере и выберите «Печать» → «Сохранить как PDF», формат А4, поля «нет», фон включён.</p>
+</div>
+
+<div class="scaler" id="scaler">
+<article class="sheet" id="sheet">
+  <header class="top">
+    <div class="reqs"><span>Паспорт ТОС · Казань</span><span>Ноябрь 2026</span></div>
+    <h1><small>Территориальное общественное самоуправление</small>«Карьер»</h1>
+    <p class="where">Советский район<br>Шуртыгинский избирательный округ №22<br>Жилой массив Карьер: ул. Агрызская, Карьерная, Переселенческая, Яснополянская, Фигурная, Песочная, Откосная, Таловая, 1-я и 2-я Верхняя</p>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="n">1 709</div><div class="l">жителей на территории</div></div>
+    <div class="stat"><div class="n">614</div><div class="l">несовершеннолетних</div></div>
+    <div class="stat"><div class="n">4 + 390</div><div class="l">многоквартирных и частных домов</div></div>
+    <div class="stat"><div class="n">100%</div><div class="l">жителей входят в ТОС</div></div>
+  </div>
+
+  <div class="body">
+    <section>
+      <h2>Приоритетные направления работы</h2>
+      <ol class="prio">
+        <li>
+          <span class="num">1</span>
+          <span class="what">Заасфальтировать ул. Агрызскую (от д. 51) и проблемные улицы посёлка</span>
+          <span class="det">Ул. Карьерная, Переселенческая, 1-я и 2-я Верхняя, Яснополянская, Фигурная, Песочная, Откосная</span>
+          <span class="meta"><span class="chip work">В работе</span>2026</span>
+        </li>
+        <li>
+          <span class="num">2</span>
+          <span class="what">Решить дефицит мест в муниципальном детском саду</span>
+          <span class="det">Школа №108 перегружена (380 при норме 330), детский сад «Весна» частный</span>
+          <span class="meta"><span class="chip plan">Запланировано</span>2027</span>
+        </li>
+        <li>
+          <span class="num">3</span>
+          <span class="what">Провести централизованную канализацию в посёлок</span>
+          <span class="det">Централизованное водоотведение в жилом массиве отсутствует</span>
+          <span class="meta"><span class="chip claimed">Заявлено</span>без срока</span>
+        </li>
+        <li>
+          <span class="num">4</span>
+          <span class="what">Обустроить освещение на двух тёмных участках</span>
+          <span class="det">От пер. Яснополянского до 2-й Верхней; за Сибирским Трактом, 48 к. 2 до Трамвайного депо</span>
+          <span class="meta"><span class="chip done">Сделано</span>2026</span>
+        </li>
+        <li>
+          <span class="num">5</span>
+          <span class="what">Установить 3 дополнительные площадки ТКО</span>
+          <span class="det">В дополнение к трём действующим (по сводке КГД)</span>
+          <span class="meta"><span class="chip plan">Запланировано</span>2027</span>
+        </li>
+        <li>
+          <span class="num">6</span>
+          <span class="what">Поставить электронное табло на остановке «Карьер»</span>
+          <span class="det">Ул. Сибирский Тракт: 9 автобусных маршрутов и маршрутка №125</span>
+          <span class="meta"><span class="chip work">В работе</span>2026</span>
+        </li>
+        <li>
+          <span class="num">7</span>
+          <span class="what">Открыть продуктовый магазин внутри посёлка</span>
+          <span class="det">Действующие три торговые точки расположены по границам массива</span>
+          <span class="meta"><span class="chip rejected">Отказано</span></span>
+        </li>
+        <li>
+          <span class="num">8</span>
+          <span class="what">Обустроить мостовой переход</span>
+          <span class="det">Потребность в 1 мосте зафиксирована в сводке КГД, точный адрес уточняется</span>
+          <span class="meta"><span class="chip claimed">Заявлено</span>без срока</span>
+        </li>
+      </ol>
+      <p class="more">Светофор инфраструктуры, карта, адреса объектов, история работ и форма обращения: в подробном паспорте по QR-коду.</p>
+    </section>
+  </div>
+
+  <footer class="foot">
+    <div class="who">
+      <div class="role">Председатель ТОС</div>
+      <div class="n">Шайхлисламова Гулия<br>Рафкатовна</div>
+      <div class="p">+7 (937) 627-00-27</div>
+    </div>
+    <div class="who">
+      <div class="role">Депутат КГД по округу №22</div>
+      <div class="n">Салимгараев Радик<br>Ваккасович</div>
+      <div class="p">+7 (939) 505-05-57</div>
+      <div class="m">Приём: первая среда месяца, 17:00–19:00<br>СОШ №111, ул. А. Кутуя, д. 4<br>t.me/salimgaraevradik</div>
+    </div>
+    <div class="qr">
+      <div class="box" id="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 41" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h41v41H0z"/><path stroke="#000000" d="M4 4.5h7m3 0h1m1 0h1m1 0h3m1 0h2m2 0h3m1 0h7M4 5.5h1m5 0h1m1 0h2m1 0h3m1 0h3m1 0h5m2 0h1m5 0h1M4 6.5h1m1 0h3m1 0h1m2 0h2m4 0h1m3 0h1m3 0h1m2 0h1m1 0h3m1 0h1M4 7.5h1m1 0h3m1 0h1m2 0h5m3 0h1m1 0h1m2 0h1m3 0h1m1 0h3m1 0h1M4 8.5h1m1 0h3m1 0h1m1 0h1m2 0h3m3 0h1m3 0h1m1 0h1m2 0h1m1 0h3m1 0h1M4 9.5h1m5 0h1m2 0h1m1 0h2m1 0h1m2 0h1m3 0h4m1 0h1m5 0h1M4 10.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M13 11.5h1m2 0h3m1 0h3m1 0h4M4 12.5h1m1 0h1m1 0h1m1 0h1m4 0h1m1 0h1m1 0h3m1 0h3m1 0h2m3 0h1m2 0h1M4 13.5h1m2 0h1m4 0h2m1 0h2m1 0h1m1 0h1m1 0h1m1 0h3m1 0h4m3 0h2M4 14.5h1m2 0h1m2 0h1m1 0h2m1 0h3m3 0h1m2 0h3m2 0h1m1 0h1m2 0h1m1 0h1M4 15.5h2m2 0h1m3 0h2m2 0h1m2 0h1m4 0h2m2 0h3m1 0h1m3 0h1M4 16.5h1m1 0h1m1 0h1m1 0h1m2 0h4m2 0h1m3 0h1m1 0h3m2 0h1m2 0h1m2 0h1M4 17.5h3m2 0h1m1 0h4m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m2 0h3m3 0h1m1 0h1M5 18.5h7m2 0h2m9 0h2m1 0h2m1 0h6M4 19.5h1m1 0h1m2 0h1m4 0h1m1 0h1m1 0h2m1 0h1m1 0h1m1 0h2m3 0h2m3 0h1M4 20.5h1m4 0h2m3 0h3m3 0h2m2 0h2m2 0h3M7 21.5h3m3 0h2m5 0h2m6 0h4m4 0h1M4 22.5h2m1 0h1m2 0h3m1 0h1m3 0h1m1 0h1m1 0h1m1 0h2m2 0h2m4 0h3M4 23.5h4m4 0h1m2 0h4m1 0h9m1 0h3m3 0h1M5 24.5h2m1 0h5m2 0h1m3 0h2m1 0h1m1 0h1m1 0h1m2 0h2m2 0h1m1 0h1M7 25.5h1m1 0h1m4 0h2m1 0h1m1 0h2m1 0h3m3 0h3m2 0h4M4 26.5h1m2 0h2m1 0h1m1 0h4m2 0h3m1 0h3m1 0h1m3 0h1m2 0h1m1 0h2M5 27.5h1m1 0h1m1 0h1m2 0h1m1 0h1m2 0h2m1 0h2m2 0h2m1 0h1m3 0h2m3 0h1M4 28.5h1m1 0h1m3 0h2m1 0h2m1 0h1m2 0h3m1 0h1m1 0h1m2 0h5m2 0h1M12 29.5h1m1 0h1m2 0h2m3 0h1m1 0h1m1 0h1m1 0h1m3 0h2m1 0h2M4 30.5h7m2 0h2m3 0h1m1 0h2m3 0h1m1 0h2m1 0h1m1 0h1m1 0h3M4 31.5h1m5 0h1m5 0h3m4 0h2m3 0h1m3 0h1m2 0h1M4 32.5h1m1 0h3m1 0h1m1 0h3m8 0h1m4 0h6m1 0h2M4 33.5h1m1 0h3m1 0h1m3 0h1m1 0h4m1 0h1m1 0h1m1 0h1m1 0h2m3 0h2m1 0h2M4 34.5h1m1 0h3m1 0h1m1 0h3m3 0h1m6 0h3m4 0h3m1 0h1M4 35.5h1m5 0h1m2 0h1m1 0h5m1 0h3m1 0h1m1 0h4m1 0h1m2 0h1M4 36.5h7m1 0h2m1 0h1m4 0h2m2 0h2m1 0h3m2 0h2m1 0h2"/></svg></div>
+      <div class="c">Наведите камеру: контакты, карта и все запросы</div>
+    </div>
+  </footer>
+</article>
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement, KEY = "tos-palette-karyer";
+  function setPal(p){
+    if (p === "malachite") root.removeAttribute("data-palette"); else root.setAttribute("data-palette", p);
+    document.querySelectorAll("#sw button").forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.pal === p)); });
+    document.getElementById("back").href = "./#" + p;
+    try { localStorage.setItem(KEY, p); } catch(e){}
+  }
+  document.querySelectorAll("#sw button").forEach(function(b){ b.addEventListener("click", function(){ setPal(b.dataset.pal); }); });
+  var start = (location.hash||"").slice(1);
+  if (!/^(malachite|cobalt|petrol)$/.test(start)) { try { start = localStorage.getItem(KEY) || "malachite"; } catch(e){ start = "malachite"; } }
+  if (!/^(malachite|cobalt|petrol)$/.test(start)) start = "malachite";
+  setPal(start);
+
+  function fit(){
+    var sheet = document.getElementById("sheet"), sc = document.getElementById("scaler");
+    var mm = sheet.offsetWidth; var avail = sc.parentElement.clientWidth - 32;
+    var k = Math.min(1, avail / mm);
+    sc.style.setProperty("--k", k < 1 ? k : 1);
+  }
+  window.addEventListener("resize", fit); fit();
+})();
+</script>
+</body>
+</html>
