@@ -246,7 +246,7 @@ footer .wrap{padding-block:20px 32px;font-size:var(--s-1);color:var(--muted);dis
     <div class="sec-head"><h2 id="h-status">Инфраструктура</h2></div>
     <div class="legend">
       <span><i class="mk ok" aria-hidden="true"></i>есть, в порядке</span>
-      <span><i class="mk part" aria-hidden="true"></i>есть частично или нужен ремонт</span>
+      <span><i class="mk part" aria-hidden="true"></i>есть частично или требует внимания</span>
       <span><i class="mk none" aria-hidden="true"></i>нет</span>
       <span><i class="mk unk" aria-hidden="true"></i>нет данных</span>
     </div>
@@ -281,7 +281,7 @@ footer .wrap{padding-block:20px 32px;font-size:var(--s-1);color:var(--muted);dis
       <li><span class="y">1954</span><span>Построено здание основной общеобразовательной школы №108.</span></li>
       <li><span class="y">1956</span><span>Основание посёлка Карьер в составе Молотовского (ныне Советского) района Казани. Среди первых жителей были переселенцы из зоны затопления Куйбышевского водохранилища.</span></li>
       <li><span class="y">1989</span><span>Расположенный рядом Карьерный овраг получил статус ландшафтного памятника природы регионального значения.</span></li>
-      <li class="work"><span class="y">2023–24</span><span>Благоустройство и открытие парка «Туган Алан» на ул. Песочной: появились прогулочная зона, сцена, детская и спортивная площадки.</span></li>
+      <li class="work"><span class="y">2023</span><span>Благоустройство и открытие парка «Туган Алан» на ул. Песочной: появились прогулочная зона, сцена, детская и спортивная площадки.</span></li>
     </ol>
   </section>
 
@@ -372,13 +372,13 @@ footer .wrap{padding-block:20px 32px;font-size:var(--s-1);color:var(--muted);dis
     ["Установить 3 дополнительные площадки ТКО","Потребность зафиксирована в сводной таблице ТОС для КГД в дополнение к 3 действующим площадкам","2027","plan",1],
     ["Установить электронное табло на остановке «Карьер»","Остановка на ул. Сибирский Тракт, 10 маршрутов общественного транспорта","2026","work",0],
     ["Открыть продуктовый магазин внутри посёлка","Действующие магазины расположены по границам жилого массива","","rejected",0],
-    ["Обустроить мостовой переход","Потребность в 1 мосте зафиксирована в сводке ТОС для КГД; точный адрес уточняется","без срока","claimed",0]
+    ["Обустроить мостовой переход","Потребность в 1 мосте зафиксирована в сводке ТОС для КГД","без срока","claimed",0]
   ];
   var ol = document.getElementById("prio");
   prio.forEach(function(p,i){
     var li = document.createElement("li");
     if (p[4]) li.className = "top";
-    li.innerHTML = '<span class="num">'+(i+1)+'</span><span class="what">'+p[0]+'</span><span class="side"><span class="chip '+S[p[3]][0]+'">'+S[p[3]][1]+'</span><span class="yr">'+p[2]+'</span></span><span class="det">'+p[1]+'. Ответственный: <span class="ph">уточняется</span></span>';
+    li.innerHTML = '<span class="num">'+(i+1)+'</span><span class="what">'+p[0]+'</span><span class="side"><span class="chip '+S[p[3]][0]+'">'+S[p[3]][1]+'</span>'+(p[2]?'<span class="yr">'+p[2]+'</span>':'')+'</span><span class="det">'+p[1]+'</span>';
     ol.appendChild(li);
   });
 
